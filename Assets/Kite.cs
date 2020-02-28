@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Kite : MonoBehaviour
 {
-
     public Player player;
 
     // Start is called before the first frame update
