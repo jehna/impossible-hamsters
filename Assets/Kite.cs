@@ -17,4 +17,11 @@ public class Kite : MonoBehaviour
     {
         Debug.DrawLine(this.transform.position, player.transform.position);
     }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.name == "Ground") {
+            Debug.Log("Hävisit pelin :(");
+            Time.timeScale = 0;
+        }
+    }
 }
