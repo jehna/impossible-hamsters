@@ -1,0 +1,35 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public Player activePlayer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        activePlayer = GameObject.FindObjectOfType<Player>();
+        activePlayer.isActive = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            IList<Player> players = new List<Player>(GameObject.FindObjectsOfType<Player>());
+            int index = players.IndexOf(activePlayer);
+            activePlayer.isActive = false;
+
+            if (index < players.Count - 1)
+            {
+                activePlayer = players[index + 1];
+            } else
+            { 
+                activePlayer = players[0];
+            }
+            activePlayer.isActive = true;
+        }
+    }
+}

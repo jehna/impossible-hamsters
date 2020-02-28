@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float speed = 1.0f;
     public float lift = 0.2f;
     public float unlift = 0.005f;
+    public bool isActive = false;
 
     public SpringJoint springJoint;
 
@@ -21,12 +22,18 @@ public class Player : MonoBehaviour
     {
         this.springJoint.connectedAnchor += Vector3.down * unlift;
 
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            this.GetComponent<Rigidbody>().velocity = Vector3.left * speed;
-            this.springJoint.connectedAnchor += Vector3.up * lift;
+        if (isActive)
+        {
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                this.GetComponent<Rigidbody>().velocity = Vector3.left * speed;
+                this.springJoint.connectedAnchor += Vector3.up * lift;
 
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
-            this.GetComponent<Rigidbody>().velocity = Vector3.right * speed;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                this.GetComponent<Rigidbody>().velocity = Vector3.right * speed;
+            }
         }
     }
 }
