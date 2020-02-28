@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Wind : MonoBehaviour
 {
     public float direction = -1;
-    float changeInterval = 8;
+    public float changeInterval = 2;
     float elapsedSinceChange = 0;
 
     // Start is called before the first frame update

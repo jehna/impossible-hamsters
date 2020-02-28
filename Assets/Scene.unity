@@ -439,7 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lift: 0.04
-  unlift: 0.01
+  unlift: 0.015
   springJoint: {fileID: 1930038441}
   wind: {fileID: 1737178804}
 --- !u!1 &1242556882
@@ -752,7 +752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '|'
+  m_Text: <
 --- !u!222 &1737178803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -774,6 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: -1
+  changeInterval: 2
 --- !u!1 &1775031687
 GameObject:
   m_ObjectHideFlags: 0
