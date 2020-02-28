@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     public SpringJoint springJoint;
 
+    public Wind wind;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +29,19 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 this.GetComponent<Rigidbody>().velocity = Vector3.left * speed;
-                this.springJoint.connectedAnchor += Vector3.up * lift;
+                if (wind.direction < 0)
+                {
+                    this.springJoint.connectedAnchor += Vector3.up * lift;
+                }
 
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 this.GetComponent<Rigidbody>().velocity = Vector3.right * speed;
+                if (wind.direction > 0)
+                {
+                    this.springJoint.connectedAnchor += Vector3.up * lift;
+                }
             }
         }
     }
