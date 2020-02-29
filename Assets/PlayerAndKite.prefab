@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f244351abb4de4f6282ee9510a3afef8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,7 +127,6 @@ MonoBehaviour:
   speed: 5
   lift: 0.05
   unlift: 0.005
-  isActive: 0
   springJoint: {fileID: 4207281457782151304}
 --- !u!1 &5039607093113222891
 GameObject:

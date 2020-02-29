@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         activePlayer = GameObject.FindObjectOfType<Player>();
-        activePlayer.isActive = true;
+        activePlayer.SetIsActive(true);
     }
 
     // Update is called once per frame
@@ -20,16 +20,16 @@ public class PlayerController : MonoBehaviour
         {
             IList<Player> players = new List<Player>(GameObject.FindObjectsOfType<Player>());
             int index = players.IndexOf(activePlayer);
-            activePlayer.isActive = false;
+            activePlayer.SetIsActive(false);
 
             if (index < players.Count - 1)
             {
                 activePlayer = players[index + 1];
             } else
-            { 
+            {
                 activePlayer = players[0];
             }
-            activePlayer.isActive = true;
+            activePlayer.SetIsActive(true);
         }
     }
 }

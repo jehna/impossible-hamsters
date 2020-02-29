@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public float speed = 1.0f;
     public float lift = 0.2f;
     public float unlift = 0.005f;
-    public bool isActive = false;
+    private bool isActive = false;
 
     public SpringJoint springJoint;
 
@@ -17,6 +17,11 @@ public class Player : MonoBehaviour
     void Start()
     {
         wind = FindObjectOfType<Wind>();
+    }
+
+    public void SetIsActive(bool _isActive) {
+        this.isActive = _isActive;
+        this.GetComponent<MeshRenderer>().material.SetColor("_Color", this.isActive ? Color.magenta : Color.white);
     }
 
     // Update is called once per frame
