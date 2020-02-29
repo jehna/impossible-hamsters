@@ -11,12 +11,12 @@ public class Player : MonoBehaviour
 
     public SpringJoint springJoint;
 
-    public Wind wind;
+    private Wind wind;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        wind = FindObjectOfType<Wind>();
     }
 
     // Update is called once per frame
