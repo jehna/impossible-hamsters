@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Kite : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Kite : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.name == "Ground") {
+            GameObject.Find("GameOverPanel").GetComponent<Image>().enabled = true; 
             Debug.Log("Hävisit pelin :(");
             Time.timeScale = 0;
         }
