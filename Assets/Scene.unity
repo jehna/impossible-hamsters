@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: -1
-  changeInterval: 2
+  windChangeScale: 0.2
 --- !u!1001 &8286331153889039298
 PrefabInstance:
   m_ObjectHideFlags: 0

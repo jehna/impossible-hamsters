@@ -6,21 +6,13 @@ using UnityEngine.UI;
 public class Wind : MonoBehaviour
 {
     public float direction = -1;
-    public float changeInterval = 2;
     float elapsedSinceChange = 0;
 
+    public float windChangeScale = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
         
-    }
-
-    void ChangeDirection() {
-        if (direction < 0) {
-            direction = 1;
-        } else {
-            direction = -1;
-        }
     }
 
     // Update is called once per frame
@@ -28,17 +20,14 @@ public class Wind : MonoBehaviour
     {
         this.elapsedSinceChange += Time.deltaTime;
 
-        if (this.elapsedSinceChange > changeInterval) {
-            ChangeDirection();
-            this.elapsedSinceChange = 0;
-        }
+        this.direction = (Mathf.PerlinNoise(Time.time * windChangeScale, 0) * 2) - 1;
 
         string text = "";
 
         if (direction < 0) {
-            text = "<";
+            text = "<" + direction;
         } else {
-            text = ">";
+            text = ">" + direction;
         }
 
         this.GetComponent<Text>().text = text;

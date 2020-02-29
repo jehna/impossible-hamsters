@@ -128,6 +128,7 @@ MonoBehaviour:
   lift: 0.05
   unlift: 0.005
   maxKiteHeight: 30
+  windEffectOnKite: -10
   springJoint: {fileID: 4207281457782151304}
 --- !u!1 &5039607093113222891
 GameObject:
