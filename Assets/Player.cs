@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player" && this.isActive)
+        if (collision.gameObject.GetComponent<Player>() != null && this.isActive)
         {
             AudioSource hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
             hitSound.Play();
