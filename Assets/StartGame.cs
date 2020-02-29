@@ -9,6 +9,7 @@ public class StartGame : MonoBehaviour {
     void Start()
     {
         Time.timeScale = 0;
+        GameObject.Find("NewHighscoreText").GetComponent<Text>().enabled = false;
     }
 
     // Update is called once per frame

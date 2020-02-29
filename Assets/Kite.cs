@@ -41,5 +41,12 @@ public class Kite : MonoBehaviour
         score.rectTransform.anchoredPosition = Vector3.down * 85.7f;
         score.alignment = TextAnchor.MiddleCenter;
         score.fontSize = 70;
+
+        var elapsedTime = GameObject.FindObjectOfType<GameTimer>().elapsedTime;
+
+        if (elapsedTime > Highscore.highestScore) {
+            GameObject.Find("NewHighscoreText").GetComponent<Text>().enabled = true;
+            Highscore.highestScore = elapsedTime;
+        }
     }
 }
