@@ -40,33 +40,33 @@ public class Player : MonoBehaviour
     {
         this.springJoint.connectedAnchor += Vector3.down * unlift;
 
+        float deltaX = this.GetComponent<Rigidbody>().velocity.x / speed;
+
+        if (deltaX < 0)
+        {
+            if (wind.direction > 0)
+            {
+                this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift * Mathf.Abs(wind.direction) * Mathf.Abs(deltaX) + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
+            }
+            else
+            {
+                this.springJoint.connectedAnchor += Vector3.down * penaltyLift;
+            }
+        }
+        else if (deltaX > 0)
+        {
+            if (wind.direction < 0)
+            {
+                this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift * Mathf.Abs(wind.direction) * Mathf.Abs(deltaX) + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
+            }
+            else
+            {
+                this.springJoint.connectedAnchor += Vector3.down * penaltyLift;
+            }
+        }
+
         if (isActive)
         {
-            float deltaX = this.GetComponent<Rigidbody>().velocity.x;
-
-            if (deltaX < 0)
-            {
-                if (wind.direction > 0)
-                {
-                    this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
-                }
-                else
-                {
-                    this.springJoint.connectedAnchor += Vector3.down * penaltyLift;
-                }
-            }
-            else if (deltaX > 0)
-            {
-                if (wind.direction < 0)
-                {
-                    this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
-                }
-                else
-                {
-                    this.springJoint.connectedAnchor += Vector3.down * penaltyLift;
-                }
-            }
-
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 this.GetComponent<Rigidbody>().velocity = Vector3.left * speed;

@@ -16,6 +16,7 @@ public class PlayerSpawner : MonoBehaviour
     void SpawnNewPlayer()
     {
         Transform newPlayer = Instantiate(playerPrefab);
+        newPlayer.GetComponentInChildren<Player>().gameObject.name += " " + FindObjectsOfType<Player>().Length; // For debugging purposes
         Color newPlayerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
         foreach (ChangeMyColorOnStartup colorChanger in newPlayer.GetComponentsInChildren<ChangeMyColorOnStartup>())
         {

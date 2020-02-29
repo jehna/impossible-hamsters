@@ -397,8 +397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lift: 100
-  penaltyLift: 0.02
-  unlift: 0.02
+  penaltyLift: 0.1
+  unlift: 0.07
   maxKiteHeight: 30
   windEffectOnKite: 10
   activityIndicator: {fileID: 6208655020694121766}
