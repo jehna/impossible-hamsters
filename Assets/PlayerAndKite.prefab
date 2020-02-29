@@ -125,11 +125,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  lift: 0.05
-  penaltyLift: 0.025
-  unlift: 0.005
+  lift: 0.15
+  penaltyLift: 0.02
+  unlift: 0.03
   maxKiteHeight: 30
-  windEffectOnKite: -10
+  windEffectOnKite: 10
   springJoint: {fileID: 4207281457782151304}
 --- !u!1 &5039607093113222891
 GameObject:
@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9159938849499939487}
   m_LocalRotation: {x: -0.2564914, y: 0.6589478, z: 0.2564914, w: 0.6589478}
-  m_LocalPosition: {x: 2.6878977, y: 2.9098399, z: 0.10578084}
+  m_LocalPosition: {x: 2.6878977, y: 20, z: 0.10578084}
   m_LocalScale: {x: 0.45317, y: 0.45317, z: 0.45317003}
   m_Children: []
   m_Father: {fileID: 8247956004361751583}
@@ -274,7 +274,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!145 &4207281457782151304
 SpringJoint:
@@ -286,12 +286,12 @@ SpringJoint:
   m_ConnectedBody: {fileID: 4049819181758260044}
   m_Anchor: {x: 0, y: 0.18317473, z: 0}
   m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 4.7216806, y: 10, z: 1.9799999}
+  m_ConnectedAnchor: {x: 4.7216806, y: 20, z: 1.9799999}
   serializedVersion: 2
-  m_Spring: 10
-  m_Damper: 0.2
+  m_Spring: 7
+  m_Damper: 100
   m_MinDistance: 0
-  m_MaxDistance: 0
+  m_MaxDistance: 2
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
