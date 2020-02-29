@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private Wind wind;
 
     public bool selectable = false;
+    private ParticleSystemRenderer psr;
+
     private ParticleSystem ps;
 
     // Start is called before the first frame update
@@ -32,8 +34,8 @@ public class Player : MonoBehaviour
         hitSounds = GetComponents<AudioSource>();
 
         ps = GetComponent<ParticleSystem>();
-        var main = ps.main;
-        main.startColor = new Color(255, 255, 255);
+        psr = GetComponent<ParticleSystemRenderer>();
+        psr.material.color = new Color(255, 255, 255);
     }
 
     public void SetIsActive(bool _isActive)
