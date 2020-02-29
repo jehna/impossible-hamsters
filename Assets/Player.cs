@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float maxKiteHeight = 10.0f;
     public float windEffectOnKite = 5.0f;
     private Vector3 previousPosition;
+    public Renderer activityIndicator;
 
     public SpringJoint springJoint;
 
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
 
     public void SetIsActive(bool _isActive) {
         this.isActive = _isActive;
-        //this.GetComponent<MeshRenderer>().material.SetColor("_Color", this.isActive ? Color.magenta : Color.white);
+        activityIndicator.enabled = _isActive;
     }
 
     // Update is called once per frame
