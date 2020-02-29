@@ -18,7 +18,8 @@ public class PlayerSpawner : MonoBehaviour
         Transform newPlayer = Instantiate(playerPrefab);
         var playerCount = GameObject.FindObjectsOfType<Player>().Length;
 
-        if (playerCount > 1) {  
+        if (playerCount > 1)
+        {
             newPlayer.position += new Vector3(newPlayer.position.x + Random.Range(-10, 10), newPlayer.position.y + 35, 0);
         }
 
@@ -29,6 +30,5 @@ public class PlayerSpawner : MonoBehaviour
         }
 
         Invoke("SpawnNewPlayer", 14f);
-
     }
 }

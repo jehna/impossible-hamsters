@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Wind wind;
 
     public bool selectable = false;
+    private ParticleSystem ps;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +30,17 @@ public class Player : MonoBehaviour
         previousPosition = transform.position;
 
         hitSounds = GetComponents<AudioSource>();
+
+        ps = GetComponent<ParticleSystem>();
+        var main = ps.main;
+        main.startColor = new Color(255, 255, 255);
     }
 
     public void SetIsActive(bool _isActive)
     {
         this.isActive = _isActive;
         activityIndicator.enabled = _isActive;
+        ps.Play();
     }
 
     // Update is called once per frame
@@ -78,13 +84,18 @@ public class Player : MonoBehaviour
                 this.GetComponent<Rigidbody>().velocity = Vector3.right * speed;
             }
         }
+        else
+        {
+            ps.Stop();
+        }
 
         this.springJoint.connectedAnchor = this.springJoint.connectedAnchor + new Vector3(-this.springJoint.connectedAnchor.x + wind.direction * windEffectOnKite, 0, 0);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Ground") {
+        if (collision.gameObject.name == "Ground")
+        {
             this.selectable = true;
             AudioSource hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
             hitSound.Play();
