@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class Kite : MonoBehaviour
 {
     public Player player;
+    public AudioSource[] hitSounds;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        hitSounds = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +27,10 @@ public class Kite : MonoBehaviour
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.name == "Ground") {
             GameOver();
+        }
+        if (collision.gameObject.GetComponent<Kite>() != null) {
+            AudioSource hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
+            hitSound.Play();
         }
     }
 
