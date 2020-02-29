@@ -15,7 +15,14 @@ public class PlayerSpawner : MonoBehaviour
     // Update is called once per frame
     void SpawnNewPlayer()
     {
-        Instantiate(playerPrefab);
+        Transform newPlayer = Instantiate(playerPrefab);
+        Color newPlayerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
+        foreach (ChangeMyColorOnStartup colorChanger in newPlayer.GetComponentsInChildren<ChangeMyColorOnStartup>())
+        {
+            colorChanger.ChangeMyColorTo(newPlayerColor);
+        }
+
         Invoke("SpawnNewPlayer", Random.Range(5.0f, 20.0f));
+
     }
 }

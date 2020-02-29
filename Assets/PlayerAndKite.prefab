@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4049819181758260032}
   - component: {fileID: 4049819181758260044}
   - component: {fileID: 4049819181758260045}
+  - component: {fileID: 8808224936052895588}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -131,6 +132,18 @@ MonoBehaviour:
   maxKiteHeight: 30
   windEffectOnKite: 10
   springJoint: {fileID: 4207281457782151304}
+--- !u!114 &8808224936052895588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049819181758260039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe867a2c11ae5425eb8afccc3f12362e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5039607093113222891
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +191,7 @@ GameObject:
   - component: {fileID: 2688614317536512300}
   - component: {fileID: 4207281457782151304}
   - component: {fileID: 4480864432223105842}
+  - component: {fileID: 495994016933906218}
   m_Layer: 0
   m_Name: Kite
   m_TagString: Untagged
@@ -225,7 +239,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3033667219593020291, guid: 4da2774771f4448dba86aa89abf9b631, type: 3}
+  - {fileID: 2100000, guid: 9081a7dc42c854635b3aa500b6d6a911, type: 2}
+  - {fileID: 2100000, guid: 114ee89f6096048d49e89f78876d6358, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -312,3 +327,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4049819181758260045}
+--- !u!114 &495994016933906218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159938849499939487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe867a2c11ae5425eb8afccc3f12362e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

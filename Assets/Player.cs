@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     public void SetIsActive(bool _isActive) {
         this.isActive = _isActive;
-        this.GetComponent<MeshRenderer>().material.SetColor("_Color", this.isActive ? Color.magenta : Color.white);
+        //this.GetComponent<MeshRenderer>().material.SetColor("_Color", this.isActive ? Color.magenta : Color.white);
     }
 
     // Update is called once per frame
