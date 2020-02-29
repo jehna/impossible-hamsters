@@ -129,7 +129,6 @@ MonoBehaviour:
   unlift: 0.005
   isActive: 0
   springJoint: {fileID: 4207281457782151304}
-  wind: {fileID: 0}
 --- !u!1 &5039607093113222891
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +284,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 4049819181758260044}
   m_Anchor: {x: 0, y: 0.18317473, z: 0}
   m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 4.7216806, y: 4.142666, z: 1.9799999}
+  m_ConnectedAnchor: {x: 4.7216806, y: 10, z: 1.9799999}
   serializedVersion: 2
   m_Spring: 10
   m_Damper: 0.2
