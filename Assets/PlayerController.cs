@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,7 +19,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            IList<Player> players = new List<Player>(GameObject.FindObjectsOfType<Player>());
+            IList<Player> players = new List<Player>(GameObject.FindObjectsOfType<Player>().Where(p => p.selectable));
+
+            if (players.Count == 0) {
+                return;
+            }
+
             int index = players.IndexOf(activePlayer);
             activePlayer.SetIsActive(false);
 
@@ -29,6 +35,7 @@ public class PlayerController : MonoBehaviour
             {
                 activePlayer = players[0];
             }
+
             activePlayer.SetIsActive(true);
         }
     }

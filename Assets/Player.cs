@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     private Wind wind;
 
+    public bool selectable = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,5 +72,11 @@ public class Player : MonoBehaviour
         }
 
         this.springJoint.connectedAnchor = this.springJoint.connectedAnchor + new Vector3(-this.springJoint.connectedAnchor.x + wind.direction * windEffectOnKite, 0, 0);
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.name == "Ground") {
+            this.selectable = true;
+        }
     }
 }
