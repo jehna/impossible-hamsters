@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class GameTimer : MonoBehaviour
     public float startTime;
     public float elapsedTime;
     float prevElapsed;
+
+    public AudioSource music;
+    public AudioSource gameoverSound;
 
     public Text timer;
 
@@ -32,5 +36,10 @@ public class GameTimer : MonoBehaviour
         this.prevElapsed = 0;
         this.startTime = Time.time;
         this.elapsedTime = 0;
+    }
+
+    public void PlayGameoverSound() {
+        music.Stop();
+        gameoverSound.Play();
     }
 }
