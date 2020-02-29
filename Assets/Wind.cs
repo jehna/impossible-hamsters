@@ -42,5 +42,7 @@ public class Wind : MonoBehaviour
         }
 
         this.GetComponent<Text>().text = text;
+
+        
     }
 }

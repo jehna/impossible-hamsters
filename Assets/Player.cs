@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float unlift = 0.005f;
     private bool isActive = false;
     public float maxKiteHeight = 10.0f;
+    public float windEffectOnKite = 5.0f;
 
     public SpringJoint springJoint;
 
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         this.springJoint.connectedAnchor += Vector3.down * unlift;
-
+        
         if (isActive)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -50,5 +51,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        this.springJoint.connectedAnchor = this.springJoint.connectedAnchor + new Vector3(-this.springJoint.connectedAnchor.x + wind.direction * windEffectOnKite, 0, 0);
     }
 }
