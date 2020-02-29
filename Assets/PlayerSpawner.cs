@@ -22,7 +22,7 @@ public class PlayerSpawner : MonoBehaviour
             colorChanger.ChangeMyColorTo(newPlayerColor);
         }
 
-        Invoke("SpawnNewPlayer", Random.Range(5.0f, 20.0f));
+        Invoke("SpawnNewPlayer", 16f);
 
     }
 }
