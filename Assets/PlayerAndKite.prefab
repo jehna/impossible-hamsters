@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lift: 0.05
+  penaltyLift: 0.025
   unlift: 0.005
   maxKiteHeight: 30
   windEffectOnKite: -10
