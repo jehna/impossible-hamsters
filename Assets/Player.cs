@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float lift = 0.2f;
     public float unlift = 0.005f;
     private bool isActive = false;
+    public float maxKiteHeight = 10.0f;
 
     public SpringJoint springJoint;
 
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
                 this.GetComponent<Rigidbody>().velocity = Vector3.left * speed;
                 if (wind.direction < 0)
                 {
-                    this.springJoint.connectedAnchor += Vector3.up * lift;
+                    this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
                 }
 
             }
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
                 this.GetComponent<Rigidbody>().velocity = Vector3.right * speed;
                 if (wind.direction > 0)
                 {
-                    this.springJoint.connectedAnchor += Vector3.up * lift;
+                    this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
                 }
             }
         }
