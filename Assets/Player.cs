@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     public SpringJoint springJoint;
 
+    public AudioSource[] hitSounds;
+
     private Wind wind;
 
     public bool selectable = false;
@@ -25,9 +27,12 @@ public class Player : MonoBehaviour
     {
         wind = FindObjectOfType<Wind>();
         previousPosition = transform.position;
+
+        hitSounds = GetComponents<AudioSource>();
     }
 
-    public void SetIsActive(bool _isActive) {
+    public void SetIsActive(bool _isActive)
+    {
         this.isActive = _isActive;
         activityIndicator.enabled = _isActive;
     }
@@ -36,24 +41,27 @@ public class Player : MonoBehaviour
     void Update()
     {
         this.springJoint.connectedAnchor += Vector3.down * unlift;
-        
+
         float deltaX = this.GetComponent<Rigidbody>().velocity.x / speed;
 
-        if (deltaX < 0) {
+        if (deltaX < 0)
+        {
             if (wind.direction > 0)
             {
                 this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift * Mathf.Abs(wind.direction) * Mathf.Abs(deltaX) + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
-            } 
-            else 
+            }
+            else
             {
                 this.springJoint.connectedAnchor += Vector3.down * penaltyLift;
             }
-        } else if (deltaX > 0) {
+        }
+        else if (deltaX > 0)
+        {
             if (wind.direction < 0)
             {
                 this.springJoint.connectedAnchor = Vector3.up * Mathf.Min(lift * Mathf.Abs(wind.direction) * Mathf.Abs(deltaX) + this.springJoint.connectedAnchor.y, this.maxKiteHeight);
             }
-            else 
+            else
             {
                 this.springJoint.connectedAnchor += Vector3.down * penaltyLift;
             }
@@ -74,9 +82,16 @@ public class Player : MonoBehaviour
         this.springJoint.connectedAnchor = this.springJoint.connectedAnchor + new Vector3(-this.springJoint.connectedAnchor.x + wind.direction * windEffectOnKite, 0, 0);
     }
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collision collision)
+    {
         if (collision.gameObject.name == "Ground") {
             this.selectable = true;
+        }
+
+        if (collision.gameObject.GetComponent<Player>() != null && this.isActive)
+        {
+            AudioSource hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
+            hitSound.Play();
         }
     }
 }
