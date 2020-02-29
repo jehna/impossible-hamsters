@@ -16,14 +16,30 @@ public class Kite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawLine(this.transform.position, player.transform.position);
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GameOver();
+        }
+
     }
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.name == "Ground") {
-            GameObject.Find("GameOverPanel").GetComponent<Image>().enabled = true; 
-            Debug.Log("Hävisit pelin :(");
-            Time.timeScale = 0;
+            GameOver();
         }
+    }
+
+    void GameOver()
+    {
+        GameObject.Find("GameOverPanel").GetComponent<Image>().enabled = true;
+        Debug.Log("Hävisit pelin :(");
+        Time.timeScale = 0;
+
+        Text score = GameObject.Find("Timer").GetComponent<Text>();
+        score.rectTransform.pivot = Vector3.one / 2;
+        score.rectTransform.anchorMin = score.rectTransform.anchorMax = Vector2.one / 2;
+        score.rectTransform.anchoredPosition = Vector3.down * 85.7f;
+        score.alignment = TextAnchor.MiddleCenter;
+        score.fontSize = 70;
     }
 }

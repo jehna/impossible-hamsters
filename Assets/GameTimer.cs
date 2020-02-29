@@ -23,7 +23,7 @@ public class GameTimer : MonoBehaviour
         this.elapsedTime = Time.time - this.startTime;
 
         if (this.elapsedTime - prevElapsed > 1.0f) {
-            this.timer.text = "Time: " + Mathf.Floor(this.elapsedTime);
+            this.timer.text = "Time: " + Mathf.Floor(this.elapsedTime) + "s";
             prevElapsed = this.elapsedTime;
         }
     }
