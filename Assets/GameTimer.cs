@@ -15,30 +15,42 @@ public class GameTimer : MonoBehaviour
 
     public Text timer;
 
+    public PlayerSpawner playerSpawner;
+
     // Start is called before the first frame update
     void Start()
     {
         this.ResetTime();
+        this.playerSpawner = GameObject.FindObjectOfType<PlayerSpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerSpawner.isZenMode)
+        {
+            this.timer.text = "Zen mode";
+            return;
+        }
+
         this.elapsedTime = Time.time - this.startTime;
 
-        if (this.elapsedTime - prevElapsed > 1.0f) {
+        if (this.elapsedTime - prevElapsed > 1.0f)
+        {
             this.timer.text = "Time: " + Mathf.Floor(this.elapsedTime) + "s";
             prevElapsed = this.elapsedTime;
         }
     }
 
-    public void ResetTime() {
+    public void ResetTime()
+    {
         this.prevElapsed = 0;
         this.startTime = Time.time;
         this.elapsedTime = 0;
     }
 
-    public void PlayGameoverSound() {
+    public void PlayGameoverSound()
+    {
         music.Stop();
         gameoverSound.Play();
     }

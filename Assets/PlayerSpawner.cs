@@ -6,6 +6,8 @@ public class PlayerSpawner : MonoBehaviour
 {
     public Transform playerPrefab;
 
+    public bool isZenMode = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,6 +17,11 @@ public class PlayerSpawner : MonoBehaviour
     // Update is called once per frame
     void SpawnNewPlayer()
     {
+        if (this.isZenMode)
+        {
+            return;
+        }
+
         Transform newPlayer = Instantiate(playerPrefab);
         var playerCount = GameObject.FindObjectsOfType<Player>().Length;
 
@@ -29,6 +36,6 @@ public class PlayerSpawner : MonoBehaviour
             colorChanger.ChangeMyColorTo(newPlayerColor);
         }
 
-        Invoke("SpawnNewPlayer", 14f);
+        Invoke("SpawnNewPlayer", 16f);
     }
 }
