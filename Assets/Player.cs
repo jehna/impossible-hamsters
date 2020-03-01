@@ -33,8 +33,8 @@ public class Player : MonoBehaviour
 
         hitSounds = GetComponents<AudioSource>();
 
-        ps = GetComponent<ParticleSystem>();
-        psr = GetComponent<ParticleSystemRenderer>();
+        ps = GetComponentInChildren<ParticleSystem>();
+        psr = GetComponentInChildren<ParticleSystemRenderer>();
         psr.material.color = new Color(255, 255, 255);
     }
 
