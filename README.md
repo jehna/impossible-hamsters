@@ -4,6 +4,10 @@ A Reaktor Gamejam 2020 game by Impossible Hamsters
 
 ![Kuka heitti leijan](./game.png)
 
+Play it here:
+
+https://jehna.github.io/impossible-hamsters/
+
 ## Impossible Hamsters are
 
 - derssi
