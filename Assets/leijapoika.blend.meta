@@ -12,6 +12,9 @@ ModelImporter:
   - first:
       74: 9150686684125865913
     second: Stand
+  - first:
+      74: -4255118921698863426
+    second: Stare
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -75,6 +78,35 @@ ModelImporter:
       internalID: 0
       firstFrame: 100
       lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Stare
+      takeName: Stare
+      internalID: 0
+      firstFrame: 110
+      lastFrame: 130
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
