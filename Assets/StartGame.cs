@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class StartGame : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +16,26 @@ public class StartGame : MonoBehaviour
     void Update()
     {
         bool isGameOverPanelEnabled = GameObject.Find("GameOverPanel").GetComponent<Image>().enabled;
-        if (Input.GetKeyDown(KeyCode.Space) && !isGameOverPanelEnabled)
+        PlayerSpawner playerSpawner = GameObject.FindObjectOfType<PlayerSpawner>();
+
+        if (!isGameOverPanelEnabled)
         {
-            GetComponent<Image>().enabled = false;
-            Time.timeScale = 1;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                playerSpawner.isZenMode = false;
+                GameStart();
+            }
+            else if (Input.GetKeyDown(KeyCode.Z))
+            {
+                playerSpawner.isZenMode = true;
+                GameStart();
+            }
         }
+    }
+
+    void GameStart()
+    {
+        GetComponent<Image>().enabled = false;
+        Time.timeScale = 1;
     }
 }
