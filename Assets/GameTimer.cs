@@ -13,6 +13,7 @@ public class GameTimer : MonoBehaviour
     public AudioSource title;
     public AudioSource music;
     public AudioSource gameoverSound;
+    public AudioSource happyGameoverSound;
 
     public Text timer;
 
@@ -55,6 +56,13 @@ public class GameTimer : MonoBehaviour
     {
         music.Stop();
         gameoverSound.Play();
+        title.Play();
+    }
+
+    public void PlayHappyGameoverSound()
+    {
+        music.Stop();
+        happyGameoverSound.Play();
         title.Play();
     }
 }

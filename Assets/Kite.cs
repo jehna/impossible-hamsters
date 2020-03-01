@@ -48,11 +48,14 @@ public class Kite : MonoBehaviour
         score.fontSize = 70;
 
         var elapsedTime = GameObject.FindObjectOfType<GameTimer>().elapsedTime;
-        GameObject.FindObjectOfType<GameTimer>().PlayGameoverSound();
+        
 
         if (elapsedTime > Highscore.highestScore) {
             GameObject.Find("NewHighscoreText").GetComponent<Text>().enabled = true;
             Highscore.highestScore = elapsedTime;
+            GameObject.FindObjectOfType<GameTimer>().PlayHappyGameoverSound();
+        } else {
+            GameObject.FindObjectOfType<GameTimer>().PlayGameoverSound();
         }
     }
 }
