@@ -99,8 +99,10 @@ public class Player : MonoBehaviour
         if (collision.gameObject.name == "Ground")
         {
             this.selectable = true;
-            AudioSource hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
-            hitSound.Play();
+            if (collision.relativeVelocity.y > 0) { 
+                AudioSource hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
+                hitSound.Play();
+            }
         }
 
         if (collision.gameObject.GetComponent<Player>() != null && this.isActive)
