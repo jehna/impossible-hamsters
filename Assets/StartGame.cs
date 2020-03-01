@@ -35,9 +35,12 @@ public class StartGame : MonoBehaviour
 
     void GameStart()
     {
+        if (Time.timeScale == 0) // we switch from start screen to playing
+        {
+            GameObject.FindObjectOfType<GameTimer>().title.Stop();
+            GameObject.FindObjectOfType<GameTimer>().music.Play();
+        }
         GetComponent<Image>().enabled = false;
         Time.timeScale = 1;
-        GameObject.FindObjectOfType<GameTimer>().title.Stop();
-        GameObject.FindObjectOfType<GameTimer>().music.Play();
     }
 }
