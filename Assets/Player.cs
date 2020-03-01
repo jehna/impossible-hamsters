@@ -92,6 +92,9 @@ public class Player : MonoBehaviour
         }
 
         this.springJoint.connectedAnchor = this.springJoint.connectedAnchor + new Vector3(-this.springJoint.connectedAnchor.x + wind.direction * windEffectOnKite, 0, 0);
+        this.GetComponent<Animator>().SetFloat("speed", Mathf.Abs(deltaX));
+        this.GetComponent<Animator>().SetFloat("walkSpeed", Mathf.Max(Mathf.Abs(deltaX), 0.3f));
+        this.transform.LookAt(transform.position + Vector3.right * deltaX);
     }
 
     void OnCollisionEnter(Collision collision)
