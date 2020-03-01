@@ -37,5 +37,7 @@ public class StartGame : MonoBehaviour
     {
         GetComponent<Image>().enabled = false;
         Time.timeScale = 1;
+        GameObject.FindObjectOfType<GameTimer>().title.Stop();
+        GameObject.FindObjectOfType<GameTimer>().music.Play();
     }
 }

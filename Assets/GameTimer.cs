@@ -10,6 +10,7 @@ public class GameTimer : MonoBehaviour
     public float elapsedTime;
     float prevElapsed;
 
+    public AudioSource title;
     public AudioSource music;
     public AudioSource gameoverSound;
 
@@ -22,6 +23,7 @@ public class GameTimer : MonoBehaviour
     {
         this.ResetTime();
         this.playerSpawner = GameObject.FindObjectOfType<PlayerSpawner>();
+        this.title.Play();
     }
 
     // Update is called once per frame
@@ -53,5 +55,6 @@ public class GameTimer : MonoBehaviour
     {
         music.Stop();
         gameoverSound.Play();
+        title.Play();
     }
 }

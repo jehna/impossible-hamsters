@@ -1615,9 +1615,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTime: 0
   elapsedTime: 0
+  title: {fileID: 1451965470}
   music: {fileID: 1451965464}
   gameoverSound: {fileID: 1451965469}
   timer: {fileID: 584755128}
+  playerSpawner: {fileID: 0}
 --- !u!82 &1451965464 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8286331155637323337, guid: 32d84a6f4960b4c3bbf676c258215da4,
@@ -1720,6 +1722,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &1451965470 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6097715959550118317, guid: 32d84a6f4960b4c3bbf676c258215da4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8286331153889039298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1460370795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,6 +2728,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6097715959550118317, guid: 32d84a6f4960b4c3bbf676c258215da4,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ab6af33d7bef43e3af4ca6e891eae7d, type: 3}
     - target: {fileID: 8286331155637323333, guid: 32d84a6f4960b4c3bbf676c258215da4,
         type: 3}
       propertyPath: m_Name
