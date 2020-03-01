@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartGame : MonoBehaviour {
+public class StartGame : MonoBehaviour
+{
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,9 @@ public class StartGame : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        bool isGameOverPanelEnabled = GameObject.Find("GameOverPanel").GetComponent<Image>().enabled;
+        if (Input.GetKeyDown(KeyCode.Space) && !isGameOverPanelEnabled)
+        {
             GetComponent<Image>().enabled = false;
             Time.timeScale = 1;
         }
