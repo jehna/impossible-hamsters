@@ -7,11 +7,12 @@ public class NBitPixelize : MonoBehaviour {
 	public int numberOfPixels = 128;
 	public int colorBits = 8;
 	private Material material;
+	public Shader shader;
 
 	// Creates a private material used to the effect
 	void Awake ()
 	{
-		material = new Material( Shader.Find("Test/NBitPixelize") );
+		material = new Material(shader);
 	}
 
 	// Postprocess the image
