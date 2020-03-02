@@ -1810,6 +1810,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4867630058374214096, guid: cebb728dbb3344c96a3267a3c6133b1e,
+        type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: c1f8fc08b1bad4bd197bd53ffb075751, type: 3}
     - target: {fileID: 4867630058374214097, guid: cebb728dbb3344c96a3267a3c6133b1e,
         type: 3}
       propertyPath: m_LocalPosition.x
